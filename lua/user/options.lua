@@ -41,7 +41,8 @@ vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
-vim.cmd [[set fcs=eob:\ ]]
+vim.cmd [[set fcs+=eob:\ ]]
+-- vim.cmd [[set fcs+=vert:\ ]]
 vim.cmd [[autocmd TermOpen * setlocal nonumber norelativenumber ]]  -- hide line numbers in terminal mode
 vim.cmd [[autocmd TermOpen * setlocal signcolumn=no ]]  -- hide signed column in terminal
 
