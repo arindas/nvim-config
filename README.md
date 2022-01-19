@@ -2,6 +2,8 @@
 
 Lua based config for nvim.
 
+![screenshot](./assets/screenshot.png)
+
 ## Installation
 Clone this repository to `~/.config/nvim`. Make sure to backup any existing nvim config dir.
 
