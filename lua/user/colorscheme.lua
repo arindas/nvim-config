@@ -9,3 +9,4 @@ if not status_ok then
 end
 
 vim.cmd [[hi VertSplit guifg=#353535]]
+vim.cmd [[hi NvimTreeNormal guibg=#1a1a1a]]
