@@ -10,3 +10,6 @@ end
 
 vim.cmd [[hi VertSplit guifg=#353535]]
 vim.cmd [[hi NvimTreeNormal guibg=#1a1a1a]]
+
+vim.cmd [[hi LineNr guifg=#4a4a4a]]
+vim.cmd [[hi CursorLineNr guibg=bg]]
