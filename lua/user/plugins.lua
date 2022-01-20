@@ -60,7 +60,7 @@ return packer.startup(function(use)
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  
+
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -83,7 +83,10 @@ return packer.startup(function(use)
     config = function()
       require('gitsigns').setup()
     end
-  } 
+  }
+
+  use "tpope/vim-sleuth"
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
