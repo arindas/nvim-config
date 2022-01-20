@@ -97,6 +97,14 @@ return packer.startup(function(use)
 
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
+  use "p00f/nvim-ts-rainbow"
+
+  use {
+    "norcalli/nvim-colorizer.lua",
+    config = function ()
+      require("colorizer").setup()
+    end
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
