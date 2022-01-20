@@ -8,4 +8,5 @@ require "user.telescope"
 require "user.statusline"
 require "user.bufferline"
 require "user.filetree"
+require "user.treesitter"
 
