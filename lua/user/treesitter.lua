@@ -5,6 +5,8 @@ end
 
 treesitter.setup {
   ensure_installed = "maintained",
+  ignore_install = {"markdown"},
+
   sync_install = false,
 
   highlight = {

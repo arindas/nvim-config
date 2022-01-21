@@ -98,6 +98,16 @@ return packer.startup(function(use)
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
   use "p00f/nvim-ts-rainbow"
+  use {
+    "gabrielelana/vim-markdown",
+    ft = {"markdown"},
+    config = function ()
+      vim.api.nvim_set_keymap(
+        "n", "<leader>c", "<cmd>MarkdownEditBlock<cr>",
+        { noremap = true, silent = true }
+      )
+    end
+  }
 
   use {
     "norcalli/nvim-colorizer.lua",
