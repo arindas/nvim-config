@@ -86,7 +86,7 @@ return packer.startup(function(use)
   }
 
   use "tpope/vim-sleuth"
-  use "lukas-reineke/indent-blankline.nvim"
+  -- use "lukas-reineke/indent-blankline.nvim"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
