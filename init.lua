@@ -11,4 +11,5 @@ require "user.filetree"
 require "user.treesitter"
 -- require "user.indentline"
 require "user.markdown"
+require "user.toggleterm"
 
