@@ -70,3 +70,5 @@ keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require
 keymap("n", "<leader>h", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 
+-- execute paragrap as bash shell and paste the result in the following paragraph
+keymap("n", "<leader>be", "yap}o<CR><esc>p!ipbash<CR>", opts)
