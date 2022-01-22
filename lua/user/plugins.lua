@@ -40,6 +40,8 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
+  use "lewis6991/impatient.nvim"
+
   -- essential plugins
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
@@ -97,7 +99,7 @@ return packer.startup(function(use)
 
   -- Treesitter
   use "nvim-treesitter/nvim-treesitter"
-  use "p00f/nvim-ts-rainbow"
+  use {"p00f/nvim-ts-rainbow", requires = {"nvim-treesitter/nvim-treesitter", opt = true}}
   use {
     "gabrielelana/vim-markdown",
     ft = {"markdown"},
@@ -120,6 +122,9 @@ return packer.startup(function(use)
 
   use {"akinsho/toggleterm.nvim"}
 
+  use {
+    'goolord/alpha-nvim',
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
