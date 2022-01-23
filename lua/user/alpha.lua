@@ -13,7 +13,17 @@ dashboard.section.buttons.val = {
     dashboard.button("SPC f", "  Find file"),
     dashboard.button("SPC h", "  Recently opened files"),
     dashboard.button("SPC g", "  Find word"),
+    dashboard.button("q", "  Quit", "<cmd>qa<CR>")
 }
+
+local fortune_ok, fortune = pcall(require, "alpha.fortune")
+if fortune_ok then
+    dashboard.section.footer.val = fortune()
+end
 
 alpha.setup(dashboard.config)
 
+-- Disable folding on alpha buffer
+vim.cmd([[
+    autocmd FileType alpha setlocal nofoldenable
+]])
