@@ -3,8 +3,8 @@ if not status_ok then
   return
 end
 
-local status_ok, actions = pcall(require, "telescope.actions")
-if not status_ok then
+local ok, actions = pcall(require, "telescope.actions")
+if not ok then
   return
 end
 
