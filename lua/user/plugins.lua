@@ -88,7 +88,7 @@ return packer.startup(function(use)
     end
   }
 
-  use "tpope/vim-sleuth"
+  -- use "tpope/vim-sleuth"
   -- use "lukas-reineke/indent-blankline.nvim"
 
   -- LSP
@@ -98,6 +98,8 @@ return packer.startup(function(use)
   use {
     'simrat39/rust-tools.nvim',
   }
+
+  use "jose-elias-alvarez/null-ls.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"

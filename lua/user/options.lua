@@ -38,7 +38,7 @@ vim.opt.sidescrolloff = 8
 
 vim.opt.shortmess:append "c"
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd [[set whichwrap+=<,>,[,],h,l]]
 vim.cmd [[set iskeyword+=-]]
 
 vim.cmd [[set fcs+=eob:\ ]]
