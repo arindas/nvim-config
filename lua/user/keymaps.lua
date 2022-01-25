@@ -25,8 +25,6 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-keymap("n", "<C-i>", ":NvimTreeFocus<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -66,9 +64,15 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>h", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+
+-- NvimTree
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<C-e>", ":NvimTreeRefresh<CR>", opts)
+keymap("n", "<C-i>", ":NvimTreeFocus<CR>", opts)
 
 -- execute paragrap as bash shell and paste the result in the following paragraph
 keymap("n", "<leader>be", "yap}o<CR><esc>p!ipbash<CR>", opts)
