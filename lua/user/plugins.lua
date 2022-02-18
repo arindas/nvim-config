@@ -48,7 +48,7 @@ return packer.startup(function(use)
 
 	-- optimisation
 	use("lewis6991/impatient.nvim")
-	use("nathom/filetype.nvim")
+	-- use("nathom/filetype.nvim")
 
 	-- colorscheme
 	use("RRethy/nvim-base16")
