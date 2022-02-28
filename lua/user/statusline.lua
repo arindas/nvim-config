@@ -33,6 +33,18 @@ lualine_module.setup({
 	extensions = {},
 })
 
--- vim.cmd(
--- 	[[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname("%") == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
--- )
+local M = {}
+
+M.hide_statusline = function()
+	local ft_where_to_hidestatus = { "NvimTree", "Outline" }
+
+	local buftype = vim.api.nvim_buf_get_option(0, "ft")
+
+	if vim.tbl_contains(ft_where_to_hidestatus, buftype) then
+		vim.api.nvim_set_option("laststatus", 0)
+	else
+		vim.api.nvim_set_option("laststatus", 2)
+	end
+end
+
+return M
