@@ -5,14 +5,22 @@ end
 
 bufferline_module.setup({
 	options = {
-		indicator_icon = " ",
+
+		modified_icon = "",
+		close_icon = "",
+
 		offsets = {
 			{
 				filetype = "NvimTree",
 				text = "",
 				text_align = "left",
-				-- padding = 1,
 			},
+		},
+	},
+
+	highlights = {
+		indicator_selected = {
+			guifg = "#b2ccd6",
 		},
 	},
 })
