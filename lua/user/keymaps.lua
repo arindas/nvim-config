@@ -80,5 +80,6 @@ keymap("n", "<C-i>", ":NvimTreeFocus<CR>", opts)
 -- SymbolsOutline
 keymap("n", "<leader>s", "<cmd>SymbolsOutline<CR>", opts)
 
--- execute paragrap as bash shell and paste the result in the following paragraph
+-- Filters
+-- execute paragraph as bash shell and paste the result in the following paragraph
 keymap("n", "<leader>be", "yap}o<CR><esc>p!ipbash<CR>", opts)
