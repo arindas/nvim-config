@@ -87,7 +87,6 @@ nvim_tree_module.setup({
 		height = 30,
 		hide_root_folder = false,
 		side = "left",
-		auto_resize = false,
 		mappings = {
 			custom_only = false,
 			list = {},
@@ -103,6 +102,7 @@ nvim_tree_module.setup({
 	actions = {
 		open_file = {
 			quit_on_open = false,
+			resize_window = true,
 			window_picker = {
 				exclude = {
 					filetype = { "notify", "packer", "qf" },
