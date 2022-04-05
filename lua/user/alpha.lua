@@ -23,8 +23,3 @@ if fortune_ok then
 end
 
 alpha.setup(dashboard.config)
-
--- Disable folding on alpha buffer
-vim.cmd([[
-    autocmd FileType alpha setlocal nofoldenable
-]])
