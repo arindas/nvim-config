@@ -73,7 +73,7 @@ keymap("n", "<leader>h", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>:AlphaRedraw<CR>", opts)
 keymap("n", "<C-e>", ":NvimTreeRefresh<CR>", opts)
 keymap("n", "<C-i>", ":NvimTreeFocus<CR>", opts)
 
