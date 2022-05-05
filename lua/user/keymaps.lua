@@ -75,7 +75,7 @@ keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>:AlphaRedraw<CR>", opts)
 keymap("n", "<C-e>", ":NvimTreeRefresh<CR>", opts)
-keymap("n", "<C-i>", ":NvimTreeFocus<CR>", opts)
+keymap("n", "<C-n>", ":NvimTreeFocus<CR>", opts)
 
 -- SymbolsOutline
 keymap("n", "<leader>s", "<cmd>SymbolsOutline<CR>", opts)
