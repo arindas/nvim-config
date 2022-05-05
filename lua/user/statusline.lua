@@ -4,10 +4,56 @@ if not status_ok then
 	return
 end
 
+local colors = {
+	black = "#212121",
+	white = "#ffffff",
+	red = "#f07178",
+	green = "#c3e88d",
+	blue = "#89ddff",
+	violet = "#82aaff",
+	yellow = "#ffcb6b",
+	gray = "#eeffff",
+	darkgray = "#2c2c2c",
+	lightgray = "#424242",
+	inactivegray = "#2c2c2c",
+}
+local colorscheme = {
+	normal = {
+		a = { bg = colors.blue, fg = colors.black, gui = "bold" },
+		b = { bg = colors.lightgray, fg = colors.white },
+		c = { bg = colors.darkgray, fg = colors.gray },
+	},
+	insert = {
+		a = { bg = colors.violet, fg = colors.black, gui = "bold" },
+		b = { bg = colors.lightgray, fg = colors.white },
+		c = { bg = colors.darkgray, fg = colors.gray },
+	},
+	visual = {
+		a = { bg = colors.yellow, fg = colors.black, gui = "bold" },
+		b = { bg = colors.lightgray, fg = colors.white },
+		c = { bg = colors.darkgray, fg = colors.gray },
+	},
+	replace = {
+		a = { bg = colors.red, fg = colors.black, gui = "bold" },
+		b = { bg = colors.lightgray, fg = colors.white },
+		c = { bg = colors.darkgray, fg = colors.gray },
+	},
+	command = {
+		a = { bg = colors.green, fg = colors.black, gui = "bold" },
+		b = { bg = colors.lightgray, fg = colors.white },
+		c = { bg = colors.darkgray, fg = colors.gray },
+	},
+	inactive = {
+		a = { bg = colors.darkgray, fg = colors.gray, gui = "bold" },
+		b = { bg = colors.darkgray, fg = colors.gray },
+		c = { bg = colors.darkgray, fg = colors.gray },
+	},
+}
+
 lualine_module.setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+		theme = colorscheme,
 		component_separators = { left = "|", right = "|" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {},
