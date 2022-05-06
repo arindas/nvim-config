@@ -71,7 +71,7 @@ return packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
-	use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", branch = "main", requires = "kyazdani42/nvim-web-devicons" })
 
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -129,7 +129,7 @@ return packer.startup(function(use)
 
 	use("jiangmiao/auto-pairs")
 
-	use({ "akinsho/toggleterm.nvim" })
+	use({ "akinsho/toggleterm.nvim", branch = "main" })
 
 	use({
 		"goolord/alpha-nvim",
