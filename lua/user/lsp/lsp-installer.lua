@@ -39,7 +39,7 @@ local syntax_ok, rust_tools = pcall(require, "rust-tools")
 if not syntax_ok then
 	return
 end
-rust_tools.setup({ server = { on_attach = opts.on_attach } })
+rust_tools.setup({ server = opts })
 
 -- configure LspInfo window border
 local win = require("lspconfig.ui.windows")
