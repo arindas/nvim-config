@@ -77,6 +77,11 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>:AlphaRedraw<CR>", opts)
 keymap("n", "<C-e>", ":NvimTreeRefresh<CR>", opts)
 keymap("n", "<C-n>", ":NvimTreeFocus<CR>", opts)
 
+-- rust-tools
+keymap("n", "<leader>rr", "<cmd>lua pcall(require('rust-tools.runnables').runnables)<CR>", opts)
+keymap("n", "<leader>re", "<cmd>lua pcall(require'rust-tools.expand_macro'.expand_macro)<CR>", opts)
+keymap("n", "<leader>rc", "<cmd>lua pcall(require'rust-tools.open_cargo_toml'.open_cargo_toml)", opts)
+
 -- SymbolsOutline
 keymap("n", "<leader>s", "<cmd>SymbolsOutline<CR>", opts)
 

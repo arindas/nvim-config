@@ -18,6 +18,3 @@ require("user.markdown")
 require("user.toggleterm")
 require("user.impatient")
 require("user.alpha")
-
--- rust tools
-require("user.rust-tools")
