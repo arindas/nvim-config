@@ -33,11 +33,13 @@ local clangd_opts = require("user.lsp.settings.clangd")
 clangd_opts = vim.tbl_deep_extend("force", clangd_opts, opts)
 lspconfig.clangd.setup(clangd_opts)
 
+lspconfig.gopls.setup(opts)
+
 local syntax_ok, rust_tools = pcall(require, "rust-tools")
 if not syntax_ok then
 	return
 end
-rust_tools.setup({ server = opts })
+rust_tools.setup({ server = { on_attach = opts.on_attach } })
 
 -- configure LspInfo window border
 local win = require("lspconfig.ui.windows")
