@@ -102,6 +102,11 @@ return packer.startup(function(use)
 		"simrat39/rust-tools.nvim",
 	})
 
+	use({
+		"ziglang/zig.vim",
+		ft = { "zig" },
+	})
+
 	use("jose-elias-alvarez/null-ls.nvim")
 
 	-- Telescope

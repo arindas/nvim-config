@@ -35,6 +35,8 @@ lspconfig.clangd.setup(clangd_opts)
 
 lspconfig.gopls.setup(opts)
 
+lspconfig.zls.setup(opts)
+
 local syntax_ok, rust_tools = pcall(require, "rust-tools")
 if not syntax_ok then
 	return
