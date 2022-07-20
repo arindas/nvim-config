@@ -138,6 +138,7 @@ return packer.startup(function(use)
 
 	use({
 		"goolord/alpha-nvim",
+		commit = "417e756951cb0395f080f2c0eda84c8aadcbb80e",
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
