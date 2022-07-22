@@ -121,7 +121,10 @@ return packer.startup(function(use)
 		"gabrielelana/vim-markdown",
 		ft = { "markdown" },
 		config = function()
-			vim.api.nvim_set_keymap("n", "<leader>c", "<cmd>MarkdownEditBlock<cr>", { noremap = true, silent = true })
+			local opts = { noremap = true, silent = true }
+			local keymap = vim.api.nvim_set_keymap
+
+			keymap("n", "<leader>c", "<cmd>MarkdownEditBlock<cr>", opts)
 		end,
 	})
 

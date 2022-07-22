@@ -41,7 +41,45 @@ local syntax_ok, rust_tools = pcall(require, "rust-tools")
 if not syntax_ok then
 	return
 end
-rust_tools.setup({ server = opts })
+
+local function rust_tools_keymaps(bufnr)
+	local keymap_custom_opts = { noremap = true, silent = true }
+	local keymap = vim.api.nvim_buf_set_keymap
+
+	keymap(
+		bufnr,
+		"n",
+		"<leader>rc",
+		"<cmd>lua pcall(require('rust-tools.open_cargo_toml').open_cargo_toml)<CR>",
+		keymap_custom_opts
+	)
+	keymap(
+		bufnr,
+		"n",
+		"<leader>rr",
+		"<cmd>lua pcall(require('rust-tools.runnables').runnables)<CR>",
+		keymap_custom_opts
+	)
+	keymap(
+		bufnr,
+		"n",
+		"<leader>re",
+		"<cmd>lua pcall(require('rust-tools.expand_macro').expand_macro)<CR>",
+		keymap_custom_opts
+	)
+end
+
+local function rust_tools_on_attach(client, bufnr)
+	opts.on_attach(client, bufnr)
+	rust_tools_keymaps(bufnr)
+end
+
+rust_tools.setup({
+	server = {
+		on_attach = rust_tools_on_attach,
+		capabilities = opts.capabilities,
+	},
+})
 
 -- configure LspInfo window border
 local win = require("lspconfig.ui.windows")
