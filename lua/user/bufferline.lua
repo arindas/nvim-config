@@ -21,7 +21,7 @@ bufferline_module.setup({
 
 	highlights = {
 		indicator_selected = {
-			guifg = "#b2ccd6",
+			fg = "#b2ccd6",
 		},
 	},
 })
