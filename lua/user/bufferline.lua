@@ -5,7 +5,7 @@ end
 
 bufferline_module.setup({
 	options = {
-		indicator_icon = " ",
+		indicator = { icon = " " },
 
 		modified_icon = "",
 		close_icon = "",
