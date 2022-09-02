@@ -96,7 +96,7 @@ return packer.startup(function(use)
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use({ "simrat39/symbols-outline.nvim", commit = "13e89b6349f51bd305a2af9db84c8490aee94c82" })
+	use({ "arindas/symbols-outline.nvim" })
 
 	use({
 		"simrat39/rust-tools.nvim",
