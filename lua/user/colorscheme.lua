@@ -30,4 +30,6 @@ vim.cmd([[highlight! link TelescopeResultsTitle TelescopeTitle]])
 vim.cmd([[highlight! link TelescopePreviewTitle TelescopeTitle]])
 vim.cmd([[highlight! link TelescopePromptPrefix Identifier]])
 
+vim.cmd([[highlight! LspInfoBorder guifg=#ffffff]])
+
 vim.cmd([[hi FocusedSymbol guifg=fg guibg=#353535]])
