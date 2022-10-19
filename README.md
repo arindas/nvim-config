@@ -34,7 +34,7 @@ Python and node support for nvim. (node is optional)
 
 - neovim node support
   ```
-  npm -i g neovim
+  npm i -g neovim
   ```
 
 ## Reference
