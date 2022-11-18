@@ -73,7 +73,7 @@ keymap("n", "<leader>h", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Open dashboard
-keymap("n", "<leader>d", "<cmd>Alpha<cr>", opts)
+keymap("n", "<leader>a", "<cmd>Alpha<cr>", opts)
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>:AlphaRedraw<CR>", opts)
@@ -94,6 +94,7 @@ keymap("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
 keymap("n", "<Leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<Leader>bc", "<Cmd>lua require'dap'.clear_breakpoints()<CR>", opts)
 keymap("n", "<Leader>B", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 keymap("n", "<Leader>lp", "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
 keymap("n", "<Leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", opts)
