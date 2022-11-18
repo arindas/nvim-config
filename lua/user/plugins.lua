@@ -109,6 +109,9 @@ return packer.startup(function(use)
 
     use("jose-elias-alvarez/null-ls.nvim")
 
+    -- DAP
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
     -- Telescope
     use("nvim-telescope/telescope.nvim")
     use({ "nvim-telescope/telescope-ui-select.nvim" })

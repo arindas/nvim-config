@@ -4,8 +4,8 @@ local colorscheme = "base16-material-darker"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-	vim.notify("colorscheme " .. colorscheme .. " not found!")
-	return
+    vim.notify("colorscheme " .. colorscheme .. " not found!")
+    return
 end
 
 vim.cmd([[hi Comment guifg=#6a6a6a]])
@@ -33,3 +33,12 @@ vim.cmd([[highlight! link TelescopePromptPrefix Identifier]])
 vim.cmd([[highlight! LspInfoBorder guifg=#ffffff]])
 
 vim.cmd([[hi FocusedSymbol guifg=fg guibg=#353535]])
+
+vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint',
+    numhl = 'DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointCondition',
+    { text = 'ﳁ', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointRejected',
+    { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
