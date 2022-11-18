@@ -1,5 +1,9 @@
-local dap = require('dap')
-dap.configurations.cpp = {
+local dap_status_ok, dap = pcall(require, 'dap')
+if not dap_status_ok then
+    return
+end
+
+dap.configurations.rust = {
     {
         name = "Launch file",
         type = "codelldb",
@@ -11,12 +15,9 @@ dap.configurations.cpp = {
         stopOnEntry = true,
     },
 }
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
 
-
-local status_ok, dapui = pcall(require, "dapui")
-if not status_ok then
+local dapui_status_ok, dapui = pcall(require, "dapui")
+if not dapui_status_ok then
     return
 end
 
