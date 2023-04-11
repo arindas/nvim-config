@@ -77,6 +77,7 @@ nvim_tree_module.setup({
         },
         add_trailing = false,
         highlight_opened_files = "none",
+        symlink_destination = false,
         icons = {
             show = {
                 folder = true,
