@@ -1,4 +1,5 @@
 local status_ok, mason = pcall(require, "mason")
+
 if not status_ok then
     return
 end
@@ -60,9 +61,9 @@ local function rust_tools_on_attach(client, bufnr)
     rust_tools_keymaps(bufnr)
 end
 
-local codelldb_home = vim.env.HOME .. "/applications/codelldb/extension/"
-local codelldb_path = codelldb_home .. 'adapter/codelldb'
-local liblldb_path = codelldb_home .. 'lldb/lib/liblldb.so'
+local path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/") or ""
+local codelldb_path = path .. "adapter/codelldb"
+local liblldb_path = path .. "lldb/lib/liblldb.so"
 
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler

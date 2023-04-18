@@ -1,35 +1,27 @@
-local dap_status_ok, dap = pcall(require, 'dap')
-if not dap_status_ok then
+local status_ok, mason_nvim_dap = pcall(require, "mason-nvim-dap")
+
+if not status_ok then
     return
 end
 
-dap.configurations.rust = {
-    {
-        name = "Launch file",
-        type = "codelldb",
-        request = "launch",
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = true,
-    },
-}
+mason_nvim_dap.setup({
+    ensure_installed = { "python", "delve", "codelldb", }
+})
 
-local dapui_status_ok, dapui = pcall(require, "dapui")
-if not dapui_status_ok then
-    return
-end
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+local dap, dapui = require("dap"), require("dapui")
 
 dapui.setup()
 
-dap.listeners.after['event_initialized']["dapui_config"] = function()
+dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
-dap.listeners.before['event_terminated']["dapui_config"] = function()
+dap.listeners.before.event_terminated["dapui_config"] = function()
     dapui.close()
 end
-dap.listeners.before['event_exited']["dapui_config"] = function()
+dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
 
@@ -39,3 +31,14 @@ if not dap_go_status_ok then
 end
 
 dap_go.setup()
+
+keymap("n", "<Leader>dc", "<Cmd>lua require'dap'.continue()<CR>", opts)
+keymap("n", "<Leader>dt", "<Cmd>lua require'dap'.terminate()<CR>", opts)
+keymap("n", "<Leader>dso", "<Cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<Leader>dsi", "<Cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<Leader>dsx", "<Cmd>lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<Leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<Leader>dbc", "<Cmd>lua require'dap'.clear_breakpoints()<CR>", opts)
+keymap("n", "<Leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", opts)
+keymap("n", "<Leader>dl", "<Cmd>lua require'dap'.run_last()<CR>", opts)
+keymap("n", "<Leader>dut", "<Cmd>lua require'dapui'.toggle()<CR>", opts)

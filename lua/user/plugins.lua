@@ -93,10 +93,13 @@ return packer.startup(function(use)
     -- use "tpope/vim-sleuth"
     -- use "lukas-reineke/indent-blankline.nvim"
 
+    use({
+        "williamboman/mason.nvim",
+    })
+
     -- LSP
     use("neovim/nvim-lspconfig") -- enable LSP
-    use { "williamboman/mason.nvim" }
-    use { "williamboman/mason-lspconfig.nvim" }
+    use { "williamboman/mason-lspconfig.nvim", requires = { "williamboman/mason.nvim" } }
 
     use({ "arindas/symbols-outline.nvim" })
 
@@ -112,8 +115,9 @@ return packer.startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim")
 
     -- DAP
+    use { "jay-babu/mason-nvim-dap.nvim", requires = { "mfussenegger/nvim-dap" } }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-    use "leoluz/nvim-dap-go"
+    use { "leoluz/nvim-dap-go" }
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
