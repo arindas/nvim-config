@@ -63,22 +63,14 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-nvim-lua")
 
     -- snippets
-    use("L3MON4D3/LuaSnip")             --snippet engine
+    use("L3MON4D3/LuaSnip")             -- snippet engine
     use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
-    use({
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    })
+    use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
 
-    use "nvim-tree/nvim-web-devicons"
+    use { "nvim-tree/nvim-web-devicons" }
     use({ "akinsho/bufferline.nvim", branch = "main", requires = "nvim-tree/nvim-web-devicons" })
-    use({
-        "nvim-tree/nvim-tree.lua",
-        requires = {
-            "nvim-tree/nvim-web-devicons", -- optional, for file icon
-        },
-    })
+    use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
 
     use({
         "lewis6991/gitsigns.nvim",
@@ -90,12 +82,8 @@ return packer.startup(function(use)
         end,
     })
 
-    -- use "tpope/vim-sleuth"
-    -- use "lukas-reineke/indent-blankline.nvim"
 
-    use({
-        "williamboman/mason.nvim",
-    })
+    use({ "williamboman/mason.nvim" })
 
     -- LSP
     use("neovim/nvim-lspconfig") -- enable LSP
@@ -113,6 +101,19 @@ return packer.startup(function(use)
     })
 
     use("jose-elias-alvarez/null-ls.nvim")
+
+
+    use {
+        "klen/nvim-test",
+        config = function()
+            require('nvim-test').setup {
+                term = "toggleterm",
+                termOpts = {
+                    direction = "horizontal",
+                }
+            }
+        end
+    }
 
     -- DAP
     use { "jay-babu/mason-nvim-dap.nvim", requires = { "mfussenegger/nvim-dap" } }

@@ -73,6 +73,12 @@ keymap("n", "<leader>th", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>td", "<cmd>Telescope git_status<cr>", opts)
 
+-- nvim-test
+keymap("n", "<leader>Tn", "<cmd>TestNearest<cr>", opts)
+keymap("n", "<leader>Tl", "<cmd>TestLast<cr>", opts)
+keymap("n", "<leader>Tf", "<cmd>TestFile<cr>", opts)
+keymap("n", "<leader>Ts", "<cmd>TestSuite<cr>", opts)
+
 -- Open dashboard
 keymap("n", "<leader>a", "<cmd>Alpha<cr>", opts)
 
