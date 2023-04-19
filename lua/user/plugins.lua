@@ -68,7 +68,7 @@ return packer.startup(function(use)
 
     use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
 
-    use { "nvim-tree/nvim-web-devicons" }
+    use { "nvim-tree/nvim-web-devicons", }
     use({ "akinsho/bufferline.nvim", branch = "main", requires = "nvim-tree/nvim-web-devicons" })
     use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
 
