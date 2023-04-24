@@ -6,10 +6,8 @@ end
 bufferline_module.setup({
     options = {
         indicator = { icon = " " },
-
         modified_icon = "",
         close_icon = "",
-
         offsets = {
             {
                 filetype = "NvimTree",
@@ -17,7 +15,6 @@ bufferline_module.setup({
                 text_align = "left",
             },
         },
-
         custom_filter = function(buf_number, _)
             -- filter out filetypes you don't want to see
             if vim.bo[buf_number].filetype ~= "dap-repl" then
@@ -25,10 +22,12 @@ bufferline_module.setup({
             end
         end,
     },
-
     highlights = {
         indicator_selected = {
             fg = "#b2ccd6",
         },
+        buffer_selected = {
+            italic = false,
+        }
     },
 })
