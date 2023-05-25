@@ -14,6 +14,7 @@ local sources = {
     null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.clang_format,
+    null_ls.builtins.formatting.fourmolu,
 }
 
 local function lsp_keymaps(bufnr)
@@ -33,7 +34,7 @@ local function on_attach(client, bufnr)
 	        autocmd! * <buffer>
 		autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
 	    augroup END
-	    ]]  )
+	    ]])
     end
 end
 
