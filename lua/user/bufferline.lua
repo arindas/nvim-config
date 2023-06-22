@@ -17,9 +17,13 @@ bufferline_module.setup({
         },
         custom_filter = function(buf_number, _)
             -- filter out filetypes you don't want to see
-            if vim.bo[buf_number].filetype ~= "dap-repl" then
-                return true
-            end
+            local filter_result = true
+            local buffer = vim.bo[buf_number]
+
+            filter_result = filter_result and buffer.filetype ~= "dap-repl"
+            filter_result = filter_result and buffer.buftype ~= "terminal"
+
+            return filter_result
         end,
     },
     highlights = {
