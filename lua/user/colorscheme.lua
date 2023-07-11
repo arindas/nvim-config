@@ -2,8 +2,9 @@
 
 local colorscheme = "base16-material-darker"
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
+---@diagnostic disable-next-line: param-type-mismatch
+local status_ok_1, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not status_ok_1 then
     vim.notify("colorscheme " .. colorscheme .. " not found!")
     return
 end
@@ -20,7 +21,11 @@ vim.cmd([[hi NvimTreeWinSeparator guifg=bg]])
 vim.cmd([[hi LineNr guifg=#4a4a4a]])
 vim.cmd([[hi CursorLineNr guibg=bg]])
 
-local rainbow_delimiters = require 'rainbow-delimiters'
+local status_ok_2, rainbow_delimiters = pcall(require, 'rainbow-delimiters')
+if not status_ok_2 then
+    vim.notify("rainbow-delimiters not installed")
+    return
+end
 
 vim.g.rainbow_delimiters = {
     strategy = {
