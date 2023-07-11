@@ -20,6 +20,37 @@ vim.cmd([[hi NvimTreeWinSeparator guifg=bg]])
 vim.cmd([[hi LineNr guifg=#4a4a4a]])
 vim.cmd([[hi CursorLineNr guibg=bg]])
 
+local rainbow_delimiters = require 'rainbow-delimiters'
+
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    highlight = {
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterCyan',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterRed',
+    },
+}
+
+vim.cmd([[hi RainbowDelimiterRed guifg=#f07178]])
+vim.cmd([[hi RainbowDelimiterYellow guifg=#ffcb6b]])
+vim.cmd([[hi RainbowDelimiterBlue guifg=#82aaff]])
+vim.cmd([[hi RainbowDelimiterOrange guifg=#f78c6c]])
+vim.cmd([[hi RainbowDelimiterGreen guifg=#c3e88d]])
+vim.cmd([[hi RainbowDelimiterViolet guifg=#c792ea]])
+vim.cmd([[hi RainbowDelimiterCyan guifg=#89ddff]])
+
+
 vim.cmd([[highlight! link TelescopeSelection    Visual]])
 vim.cmd([[highlight! link TelescopeNormal       Normal]])
 vim.cmd([[highlight! link TelescopePromptNormal TelescopeNormal]])

@@ -127,7 +127,7 @@ return packer.startup(function(use)
 
     -- Treesitter
     use("nvim-treesitter/nvim-treesitter")
-    use({ "p00f/nvim-ts-rainbow", requires = { "nvim-treesitter/nvim-treesitter", opt = true } })
+    use("HiPhish/rainbow-delimiters.nvim")
     use({
         "gabrielelana/vim-markdown",
         ft = { "markdown" },

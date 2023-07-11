@@ -44,6 +44,8 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
+    client.server_capabilities.semanticTokensProvider = nil
+
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.document_highlight then
         vim.api.nvim_exec(

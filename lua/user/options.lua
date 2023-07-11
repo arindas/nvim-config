@@ -36,7 +36,7 @@ vim.opt.sidescrolloff = 8
 
 -- vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 
-vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
+-- vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
 
 vim.opt.shortmess:append("c")
 
