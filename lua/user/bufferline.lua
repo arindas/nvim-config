@@ -22,6 +22,7 @@ bufferline_module.setup({
 
             filter_result = filter_result and buffer.filetype ~= "dap-repl"
             filter_result = filter_result and buffer.buftype ~= "terminal"
+            filter_result = filter_result and buffer.filetype ~= "qf"
 
             return filter_result
         end,
