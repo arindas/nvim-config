@@ -128,16 +128,6 @@ return packer.startup(function(use)
     -- Treesitter
     use("nvim-treesitter/nvim-treesitter")
     use("HiPhish/rainbow-delimiters.nvim")
-    use({
-        "gabrielelana/vim-markdown",
-        ft = { "markdown" },
-        config = function()
-            local opts = { noremap = true, silent = true }
-            local keymap = vim.api.nvim_set_keymap
-
-            keymap("n", "<leader>c", "<cmd>MarkdownEditBlock<cr>", opts)
-        end,
-    })
 
     use({
         "norcalli/nvim-colorizer.lua",

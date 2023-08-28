@@ -5,7 +5,6 @@ end
 
 treesitter.setup({
 	ensure_installed = "all",
-	ignore_install = { "markdown", "markdown_inline" },
 
 	sync_install = false,
 
