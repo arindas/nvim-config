@@ -127,7 +127,7 @@ return packer.startup(function(use)
 
     -- Treesitter
     use("nvim-treesitter/nvim-treesitter")
-    use("HiPhish/rainbow-delimiters.nvim")
+    -- use("HiPhish/rainbow-delimiters.nvim")
 
     use({
         "norcalli/nvim-colorizer.lua",
