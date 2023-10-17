@@ -44,8 +44,6 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-    client.server_capabilities.semanticTokensProvider = nil
-
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.document_highlight then
         vim.api.nvim_exec(
@@ -55,7 +53,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]]       ,
+    ]],
             false
         )
     end
@@ -76,6 +74,12 @@ local function lsp_keymaps(bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+end
+
+M.on_init = function(client, _)
+    if client.server_capabilities then
+        client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
+    end
 end
 
 M.on_attach = function(client, bufnr)

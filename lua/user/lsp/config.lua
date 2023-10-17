@@ -4,11 +4,18 @@ if not status_ok then
     return
 end
 
-mason.setup {}
+mason.setup({})
+
+local status_ok_handlers, handlers = pcall(require, "user.lsp.handlers")
+
+if not status_ok_handlers then
+    return
+end
 
 local opts = {
-    capabilities = require("user.lsp.handlers").capabilities,
-    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = handlers.capabilities,
+    on_init = handlers.on_init,
+    on_attach = handlers.on_attach,
 }
 
 local ok, lspconfig = pcall(require, "lspconfig")
@@ -16,11 +23,18 @@ if not ok then
     return
 end
 
-require("mason-lspconfig").setup {
+require("mason-lspconfig").setup({
     ensure_installed = {
-        "lua_ls", "jsonls", "pyright", "clangd", "gopls", "zls", "tsserver", "rust_analyzer"
-    }
-}
+        "lua_ls",
+        "jsonls",
+        "pyright",
+        "clangd",
+        "gopls",
+        "zls",
+        "tsserver",
+        "rust_analyzer",
+    },
+})
 
 local function rust_tools_keymaps(bufnr)
     local keymap_custom_opts = { noremap = true, silent = true }
@@ -65,7 +79,7 @@ local path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/codelldb/ext
 local codelldb_path = path .. "adapter/codelldb"
 local liblldb_path = path .. "lldb/lib/liblldb.so"
 
-require("mason-lspconfig").setup_handlers {
+require("mason-lspconfig").setup_handlers({
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
@@ -75,17 +89,17 @@ require("mason-lspconfig").setup_handlers {
     -- Next, you can provide a dedicated handler for specific servers.
     -- For example, a handler override for the `rust_analyzer`:
     ["rust_analyzer"] = function()
-        require("rust-tools").setup {
+        require("rust-tools").setup({
             server = {
+                on_init = opts.on_init,
                 on_attach = rust_tools_on_attach,
                 capabilities = opts.capabilities,
             },
 
             dap = {
-                adapter = require('rust-tools.dap').get_codelldb_adapter(
-                    codelldb_path, liblldb_path)
-            }
-        }
+                adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+            },
+        })
     end,
 
     ["jsonls"] = function()
@@ -110,8 +124,8 @@ require("mason-lspconfig").setup_handlers {
         local clangd_opts = require("user.lsp.settings.clangd")
         clangd_opts = vim.tbl_deep_extend("force", clangd_opts, opts)
         lspconfig.clangd.setup(clangd_opts)
-    end
-}
+    end,
+})
 
 -- configure LspInfo window border
 local win = require("lspconfig.ui.windows")
