@@ -96,7 +96,6 @@ return packer.startup(function(use)
 
     use({
         "ziglang/zig.vim",
-        ft = { "zig" },
     })
 
     use("jose-elias-alvarez/null-ls.nvim")
@@ -104,7 +103,7 @@ return packer.startup(function(use)
     -- DAP
     use({ "jay-babu/mason-nvim-dap.nvim", requires = { "mfussenegger/nvim-dap" } })
     use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-    use({ "leoluz/nvim-dap-go", ft = { "go" } })
+    use({ "leoluz/nvim-dap-go" })
 
     -- Telescope
     use({ "nvim-telescope/telescope.nvim", event = "BufEnter" })
