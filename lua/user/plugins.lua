@@ -42,8 +42,8 @@ packer.init({
 return packer.startup(function(use)
     -- essential plugins
     use("wbthomason/packer.nvim") -- Have packer manage itself
-    use("nvim-lua/popup.nvim")    -- An implementation of the Popup API from vim in Neovim
-    use("nvim-lua/plenary.nvim")  -- Useful lua functions used ny lots of plugins
+    use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+    use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
     use("mfussenegger/nvim-dap")
 
     -- optimisation
@@ -54,21 +54,21 @@ return packer.startup(function(use)
     use("RRethy/nvim-base16")
 
     -- cmp plugins
-    use("hrsh7th/nvim-cmp")         -- The completion plugin
-    use("hrsh7th/cmp-buffer")       -- buffer completions
-    use("hrsh7th/cmp-path")         -- path completions
-    use("hrsh7th/cmp-cmdline")      -- cmdline completions
+    use("hrsh7th/nvim-cmp") -- The completion plugin
+    use("hrsh7th/cmp-buffer") -- buffer completions
+    use("hrsh7th/cmp-path") -- path completions
+    use("hrsh7th/cmp-cmdline") -- cmdline completions
     use("saadparwaiz1/cmp_luasnip") -- snippet completions
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-nvim-lua")
 
     -- snippets
-    use("L3MON4D3/LuaSnip")             -- snippet engine
+    use("L3MON4D3/LuaSnip") -- snippet engine
     use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
     use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
 
-    use { "nvim-tree/nvim-web-devicons", }
+    use({ "nvim-tree/nvim-web-devicons" })
     use({ "akinsho/bufferline.nvim", branch = "main", requires = "nvim-tree/nvim-web-devicons" })
     use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
 
@@ -82,12 +82,11 @@ return packer.startup(function(use)
         end,
     })
 
-
     use({ "williamboman/mason.nvim" })
 
     -- LSP
     use("neovim/nvim-lspconfig") -- enable LSP
-    use { "williamboman/mason-lspconfig.nvim", requires = { "williamboman/mason.nvim" } }
+    use({ "williamboman/mason-lspconfig.nvim", requires = { "williamboman/mason.nvim" } })
 
     use({ "arindas/symbols-outline.nvim" })
 
@@ -102,32 +101,31 @@ return packer.startup(function(use)
 
     use("jose-elias-alvarez/null-ls.nvim")
 
+    -- DAP
+    use({ "jay-babu/mason-nvim-dap.nvim", requires = { "mfussenegger/nvim-dap" } })
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use({ "leoluz/nvim-dap-go", ft = { "go" } })
 
-    use {
+    -- Telescope
+    use({ "nvim-telescope/telescope.nvim", event = "BufEnter" })
+    use({ "nvim-telescope/telescope-ui-select.nvim", requires = { "nvim-telescope/telescope.nvim", opt = true } })
+    use({ "nvim-telescope/telescope-file-browser.nvim", requires = { "nvim-telescope/telescope.nvim", opt = true } })
+
+    -- Treesitter
+    use({ "nvim-treesitter/nvim-treesitter" })
+    -- use("HiPhish/rainbow-delimiters.nvim")
+    use({
         "klen/nvim-test",
+        requires = { "nvim-treesitter/nvim-treesitter", opt = true },
         config = function()
-            require('nvim-test').setup {
+            require("nvim-test").setup({
                 term = "toggleterm",
                 termOpts = {
                     direction = "horizontal",
-                }
-            }
-        end
-    }
-
-    -- DAP
-    use { "jay-babu/mason-nvim-dap.nvim", requires = { "mfussenegger/nvim-dap" } }
-    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-    use { "leoluz/nvim-dap-go" }
-
-    -- Telescope
-    use("nvim-telescope/telescope.nvim")
-    use({ "nvim-telescope/telescope-ui-select.nvim" })
-    use({ "nvim-telescope/telescope-file-browser.nvim" })
-
-    -- Treesitter
-    use("nvim-treesitter/nvim-treesitter")
-    -- use("HiPhish/rainbow-delimiters.nvim")
+                },
+            })
+        end,
+    })
 
     use({
         "norcalli/nvim-colorizer.lua",
@@ -152,6 +150,8 @@ return packer.startup(function(use)
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
     })
+
+    use({ "dstein64/vim-startuptime" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
