@@ -106,7 +106,39 @@ return packer.startup(function(use)
     use({ "leoluz/nvim-dap-go" })
 
     -- Telescope
-    use({ "nvim-telescope/telescope.nvim", event = "BufEnter" })
+    use({
+        "nvim-telescope/telescope.nvim",
+        event = "BufEnter",
+        config = function()
+            local telescope_status_ok, telescope = pcall(require, "telescope")
+            if not telescope_status_ok then
+                return
+            end
+
+            telescope.setup({
+                defaults = {
+
+                    path_display = { "smart" },
+                    sorting_strategy = "ascending",
+                    layout_config = {
+                        horizontal = {
+                            prompt_position = "top",
+                        },
+                    },
+                },
+                extensions = {
+                    ["ui-select"] = {
+                        require("telescope.themes").get_dropdown({
+                            -- even more opts
+                        }),
+                    },
+                },
+            })
+
+            telescope.load_extension("ui-select")
+            telescope.load_extension("file_browser")
+        end,
+    })
     use({ "nvim-telescope/telescope-ui-select.nvim", requires = { "nvim-telescope/telescope.nvim", opt = true } })
     use({ "nvim-telescope/telescope-file-browser.nvim", requires = { "nvim-telescope/telescope.nvim", opt = true } })
 
