@@ -17,29 +17,32 @@ vim.cmd([[hi TSComment guifg=#6a6a6a]])
 vim.cmd([[hi NvimTreeNormal guibg=#1a1a1a]])
 vim.cmd([[hi NvimTreeNormalFloat guibg=#1a1a1a]])
 vim.cmd([[hi NvimTreeWinSeparator guifg=bg]])
+vim.cmd([[hi link NvimTreeIndentMarker NvimTreeFolderIcon]])
+vim.cmd([[hi link NvimTreeRootFolder Keyword]])
+vim.cmd([[hi NvimTreeSpecialFile gui=bold,underline guifg=#ffcb6b]])
 
 vim.cmd([[hi LineNr guifg=#4a4a4a]])
 vim.cmd([[hi CursorLineNr guibg=bg]])
 
-local status_ok_2, rainbow_delimiters = pcall(require, 'rainbow-delimiters')
+local status_ok_2, rainbow_delimiters = pcall(require, "rainbow-delimiters")
 if status_ok_2 then
     vim.g.rainbow_delimiters = {
         strategy = {
-            [''] = rainbow_delimiters.strategy['global'],
-            vim = rainbow_delimiters.strategy['local'],
+            [""] = rainbow_delimiters.strategy["global"],
+            vim = rainbow_delimiters.strategy["local"],
         },
         query = {
-            [''] = 'rainbow-delimiters',
-            lua = 'rainbow-blocks',
+            [""] = "rainbow-delimiters",
+            lua = "rainbow-blocks",
         },
         highlight = {
-            'RainbowDelimiterYellow',
-            'RainbowDelimiterOrange',
-            'RainbowDelimiterGreen',
-            'RainbowDelimiterCyan',
-            'RainbowDelimiterBlue',
-            'RainbowDelimiterViolet',
-            'RainbowDelimiterRed',
+            "RainbowDelimiterYellow",
+            "RainbowDelimiterOrange",
+            "RainbowDelimiterGreen",
+            "RainbowDelimiterCyan",
+            "RainbowDelimiterBlue",
+            "RainbowDelimiterViolet",
+            "RainbowDelimiterRed",
         },
     }
 
@@ -51,8 +54,6 @@ if status_ok_2 then
     vim.cmd([[hi RainbowDelimiterViolet guifg=#c792ea]])
     vim.cmd([[hi RainbowDelimiterCyan guifg=#89ddff]])
 end
-
-
 
 vim.cmd([[highlight! link TelescopeSelection    Visual]])
 vim.cmd([[highlight! link TelescopeNormal       Normal]])
@@ -69,15 +70,22 @@ vim.cmd([[highlight! LspInfoBorder guifg=#ffffff]])
 
 vim.cmd([[hi FocusedSymbol guifg=fg guibg=#353535]])
 
-vim.fn.sign_define('DapBreakpoint', {
-    text = '',
-    texthl = 'DapBreakpoint',
-    linehl = 'DapBreakpoint',
-    numhl = 'DapBreakpoint'
+vim.fn.sign_define("DapBreakpoint", {
+    text = "",
+    texthl = "DapBreakpoint",
+    linehl = "DapBreakpoint",
+    numhl = "DapBreakpoint",
 })
-vim.fn.sign_define('DapBreakpointCondition',
-    { text = 'ﳁ', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-vim.fn.sign_define('DapBreakpointRejected',
-    { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' })
-vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
+vim.fn.sign_define(
+    "DapBreakpointCondition",
+    { text = "ﳁ", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define(
+    "DapBreakpointRejected",
+    { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define(
+    "DapLogPoint",
+    { text = "", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" }
+)
+vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" })
