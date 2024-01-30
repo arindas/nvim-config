@@ -7,7 +7,7 @@ vim.g.symbols_outline = {
         Module = { icon = "", hl = "TSNamespace" },
         Namespace = { icon = "", hl = "TSNamespace" },
         Package = { icon = "", hl = "TSNamespace" },
-        Class = { icon = "𝓒", hl = "TSType" },
+        Class = { icon = "", hl = "TSType" },
         Method = { icon = "ƒ", hl = "TSMethod" },
         Property = { icon = "", hl = "TSMethod" },
         Field = { icon = "", hl = "TSField" },
