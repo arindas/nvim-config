@@ -17,7 +17,7 @@ vim.g.symbols_outline = {
         Function = { icon = "ƒ", hl = "TSFunction" },
         Variable = { icon = "", hl = "TSConstant" },
         Constant = { icon = "", hl = "TSConstant" },
-        String = { icon = "", hl = "TSString" },
+        String = { icon = "󰅳", hl = "TSString" },
         Number = { icon = "#", hl = "TSNumber" },
         Boolean = { icon = "", hl = "TSBoolean" },
         Array = { icon = "", hl = "TSConstant" },
