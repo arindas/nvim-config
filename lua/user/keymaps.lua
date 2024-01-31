@@ -74,6 +74,7 @@ keymap("n", "<leader>t/", "<cmd>Telescope file_browser<cr>", opts)
 keymap("n", "<leader>th", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>td", "<cmd>Telescope git_status<cr>", opts)
+keymap("n", "<leader>tc", "<cmd>Telescope git_commits<cr>", opts)
 
 -- nvim-test
 keymap("n", "<leader>Tn", "<cmd>TestNearest<cr>", opts)

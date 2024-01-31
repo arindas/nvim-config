@@ -15,6 +15,7 @@ dashboard.section.buttons.val = {
     dashboard.button("SPC t h", "󰈢  Recently opened files"),
     dashboard.button("SPC t g", "󰱼  Find word"),
     dashboard.button("SPC t d", "  Git Diff Preview"),
+    dashboard.button("SPC t c", "  Git Commits"),
     dashboard.button("q", "󰿅  Quit", "<cmd>qa<CR>"),
 }
 
