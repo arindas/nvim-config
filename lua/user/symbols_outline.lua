@@ -3,7 +3,7 @@ vim.g.symbols_outline = {
     highlight_hovered_item = false,
     auto_preview = false,
     symbols = {
-        File = { icon = "", hl = "TSURI" },
+        File = { icon = "󰈔", hl = "TSURI" },
         Module = { icon = "", hl = "TSNamespace" },
         Namespace = { icon = "", hl = "TSNamespace" },
         Package = { icon = "", hl = "TSNamespace" },
