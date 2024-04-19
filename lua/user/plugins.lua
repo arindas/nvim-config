@@ -91,7 +91,7 @@ return packer.startup(function(use)
     use({ "arindas/symbols-outline.nvim" })
 
     use({
-        "arindas/rust-tools.nvim",
+        "mrcjkb/rustaceanvim",
     })
 
     use({

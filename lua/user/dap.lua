@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 mason_nvim_dap.setup({
-    ensure_installed = { "python", "delve", "codelldb", }
+    ensure_installed = { "python", "delve", "codelldb" },
 })
 
 local opts = { noremap = true, silent = true }

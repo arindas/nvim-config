@@ -36,49 +36,6 @@ require("mason-lspconfig").setup({
     },
 })
 
-local function rust_tools_keymaps(bufnr)
-    local keymap_custom_opts = { noremap = true, silent = true }
-    local keymap = vim.api.nvim_buf_set_keymap
-
-    keymap(
-        bufnr,
-        "n",
-        "<leader>rc",
-        "<cmd>lua pcall(require('rust-tools.open_cargo_toml').open_cargo_toml)<CR>",
-        keymap_custom_opts
-    )
-    keymap(
-        bufnr,
-        "n",
-        "<leader>rr",
-        "<cmd>lua pcall(require('rust-tools.runnables').runnables)<CR>",
-        keymap_custom_opts
-    )
-    keymap(
-        bufnr,
-        "n",
-        "<leader>rd",
-        "<cmd>lua pcall(require('rust-tools.debuggables').debuggables)<CR>",
-        keymap_custom_opts
-    )
-    keymap(
-        bufnr,
-        "n",
-        "<leader>re",
-        "<cmd>lua pcall(require('rust-tools.expand_macro').expand_macro)<CR>",
-        keymap_custom_opts
-    )
-end
-
-local function rust_tools_on_attach(client, bufnr)
-    opts.on_attach(client, bufnr)
-    rust_tools_keymaps(bufnr)
-end
-
-local path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/") or ""
-local codelldb_path = path .. "adapter/codelldb"
-local liblldb_path = path .. "lldb/lib/liblldb.so"
-
 require("mason-lspconfig").setup_handlers({
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have

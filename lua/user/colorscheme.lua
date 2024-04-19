@@ -71,14 +71,14 @@ vim.cmd([[highlight! LspInfoBorder guifg=#ffffff]])
 vim.cmd([[hi FocusedSymbol guifg=fg guibg=#353535]])
 
 vim.fn.sign_define("DapBreakpoint", {
-    text = "",
+    text = "",
     texthl = "DapBreakpoint",
     linehl = "DapBreakpoint",
     numhl = "DapBreakpoint",
 })
 vim.fn.sign_define(
     "DapBreakpointCondition",
-    { text = "ﳁ", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+    { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
 )
 vim.fn.sign_define(
     "DapBreakpointRejected",
