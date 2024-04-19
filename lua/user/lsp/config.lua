@@ -88,19 +88,7 @@ require("mason-lspconfig").setup_handlers({
     end,
     -- Next, you can provide a dedicated handler for specific servers.
     -- For example, a handler override for the `rust_analyzer`:
-    ["rust_analyzer"] = function()
-        require("rust-tools").setup({
-            server = {
-                on_init = opts.on_init,
-                on_attach = rust_tools_on_attach,
-                capabilities = opts.capabilities,
-            },
-
-            dap = {
-                adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-            },
-        })
-    end,
+    ["rust_analyzer"] = function() end,
 
     ["jsonls"] = function()
         local jsonls_opts = require("user.lsp.settings.jsonls")

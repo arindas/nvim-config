@@ -102,7 +102,7 @@ return packer.startup(function(use)
 
     -- DAP
     use({ "jay-babu/mason-nvim-dap.nvim", requires = { "mfussenegger/nvim-dap" } })
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
     use({ "leoluz/nvim-dap-go" })
 
     -- Telescope
