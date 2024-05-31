@@ -2,6 +2,7 @@ vim.g.symbols_outline = {
     preview_bg_highlight = "bg",
     highlight_hovered_item = false,
     auto_preview = false,
+    width = 15,
     symbols = {
         File = { icon = "󰈔", hl = "TSURI" },
         Module = { icon = "", hl = "TSNamespace" },
