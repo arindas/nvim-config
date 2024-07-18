@@ -13,6 +13,7 @@ vim.cmd([[hi Comment guifg=#6a6a6a]])
 vim.cmd([[hi VertSplit guifg=#353535]])
 
 vim.cmd([[hi TSComment guifg=#6a6a6a]])
+vim.cmd([[hi LspInlayHint guifg=#808080]])
 
 vim.cmd([[hi NvimTreeNormal guibg=#1a1a1a]])
 vim.cmd([[hi NvimTreeNormalFloat guibg=#1a1a1a]])

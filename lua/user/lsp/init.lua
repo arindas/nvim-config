@@ -1,9 +1,11 @@
 local status_ok, _ = pcall(require, "lspconfig")
 if not status_ok then
-	return
+    return
 end
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
 require("user.lsp.config")
 require("user.lsp.handlers").setup()
+
+vim.lsp.inlay_hint.enable()
