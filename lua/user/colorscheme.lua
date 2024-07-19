@@ -10,7 +10,7 @@ if not status_ok_1 then
 end
 
 vim.cmd([[hi Comment guifg=#6a6a6a]])
-vim.cmd([[hi VertSplit guifg=#353535]])
+vim.cmd([[hi WinSeparator guifg=#353535]])
 
 vim.cmd([[hi TSComment guifg=#6a6a6a]])
 vim.cmd([[hi LspInlayHint guifg=#808080]])
