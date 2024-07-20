@@ -6,6 +6,11 @@ end
 
 vim.g.rustaceanvim = {
     -- LSP configuration
+    tools = {
+        float_win_config = {
+            border = "rounded",
+        },
+    },
     server = {
         on_attach = function(client, bufnr)
             lsp_handlers.on_attach(client, bufnr)
