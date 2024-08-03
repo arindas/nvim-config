@@ -88,8 +88,6 @@ return packer.startup(function(use)
     use("neovim/nvim-lspconfig") -- enable LSP
     use({ "williamboman/mason-lspconfig.nvim", requires = { "williamboman/mason.nvim" } })
 
-    use({ "arindas/symbols-outline.nvim" })
-
     use({ "hedyhli/outline.nvim" })
 
     use({
