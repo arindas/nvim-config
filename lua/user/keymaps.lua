@@ -91,7 +91,7 @@ keymap("n", "<C-e>", ":NvimTreeRefresh<CR>", opts)
 keymap("n", "<C-n>", ":NvimTreeFocus<CR>", opts)
 
 -- SymbolsOutline
-keymap("n", "<leader>s", "<cmd>SymbolsOutline<CR>", opts)
+keymap("n", "<leader>s", "<cmd>Outline<CR>", opts)
 
 -- Filters
 -- execute paragraph as bash shell and paste the result in the following paragraph

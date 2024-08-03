@@ -90,6 +90,8 @@ return packer.startup(function(use)
 
     use({ "arindas/symbols-outline.nvim" })
 
+    use({ "hedyhli/outline.nvim" })
+
     use({
         "mrcjkb/rustaceanvim",
     })
