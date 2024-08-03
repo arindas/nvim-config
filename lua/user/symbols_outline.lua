@@ -77,7 +77,7 @@ require("outline").setup({
         -- location in code when focus is in code. If disabled you can use
         -- `:OutlineFollow[!]` from any window or `<C-g>` from outline window to
         -- trigger this manually.
-        auto_set_cursor = false,
+        auto_set_cursor = true,
         -- Autocmd events to automatically trigger these operations.
         auto_update_events = {
             -- Includes both setting of cursor and highlighting of hovered item.
@@ -106,7 +106,7 @@ require("outline").setup({
 
     symbol_folding = {
         -- Depth past which nodes will be folded by default. Set to false to unfold all on open.
-        autofold_depth = 1,
+        autofold_depth = false,
         -- When to auto unfold nodes
         auto_unfold = {
             -- Auto unfold currently hovered symbol
