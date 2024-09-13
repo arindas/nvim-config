@@ -35,6 +35,7 @@ vim.g.rustaceanvim = {
                 vim.cmd.RustLsp("expandMacro")
             end, { silent = true, buffer = bufnr })
         end,
+        load_vscode_settings = false,
         default_settings = {
             -- rust-analyzer language server configuration
             ["rust-analyzer"] = {},
