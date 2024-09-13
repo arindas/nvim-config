@@ -31,7 +31,7 @@ require("mason-lspconfig").setup({
         "clangd",
         "gopls",
         "zls",
-        "tsserver",
+        "ts_ls",
         "rust_analyzer",
     },
 })
