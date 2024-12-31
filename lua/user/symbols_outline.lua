@@ -13,7 +13,7 @@ require("outline").setup({
         split_command = nil,
 
         -- Percentage or integer of columns
-        width = 10,
+        width = 15,
         -- Whether width is relative to the total width of nvim
         -- When relative_width = true, this means take 25% of the total
         -- screen width for outline window.
