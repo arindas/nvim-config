@@ -172,6 +172,13 @@ return packer.startup(function(use)
         end,
     })
 
+    use({
+        "nmac427/guess-indent.nvim",
+        config = function()
+            require("guess-indent").setup({})
+        end,
+    })
+
     use({ "akinsho/toggleterm.nvim", branch = "main" })
 
     use({
