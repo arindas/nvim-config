@@ -98,7 +98,7 @@ return packer.startup(function(use)
         "ziglang/zig.vim",
     })
 
-    use("jose-elias-alvarez/null-ls.nvim")
+    use("nvimtools/none-ls.nvim")
 
     -- DAP
     use({ "jay-babu/mason-nvim-dap.nvim", requires = { "mfussenegger/nvim-dap" } })
