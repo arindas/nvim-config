@@ -12,6 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.loader.enable()
+
 -- Load plugins
 require("lazy").setup({
     -- Plugin manager manages itself
@@ -20,7 +22,6 @@ require("lazy").setup({
     -- Essentials
     "nvim-lua/plenary.nvim",
     "nvim-lua/popup.nvim",
-    "lewis6991/impatient.nvim",
     -- "nathom/filetype.nvim", -- optional, commented
 
     -- Colorscheme
@@ -38,6 +39,7 @@ require("lazy").setup({
     "rafamadriz/friendly-snippets",
 
     -- UI
+    "nvim-tree/nvim-web-devicons",
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -116,6 +118,7 @@ require("lazy").setup({
                 termOpts = { direction = "horizontal" },
             })
         end,
+        event = "VeryLazy",
     },
 
     -- Other utilities
