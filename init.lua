@@ -20,6 +20,6 @@ require("user.treesitter")
 -- require "user.indentline"
 require("user.markdown")
 require("user.toggleterm")
-require("user.impatient")
+-- require("user.impatient")
 require("user.alpha")
 require("user.dap")
