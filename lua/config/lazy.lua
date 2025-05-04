@@ -41,9 +41,9 @@ require("lazy").setup({
             "hrsh7th/cmp-buffer",
         },
     },
-    "saadparwaiz1/cmp_luasnip",
-    "L3MON4D3/LuaSnip",
-    "rafamadriz/friendly-snippets",
+    { "saadparwaiz1/cmp_luasnip", event = "InsertEnter" },
+    { "L3MON4D3/LuaSnip", event = "InsertEnter" },
+    { "rafamadriz/friendly-snippets", lazy = true },
 
     -- UI
     "nvim-tree/nvim-web-devicons",
@@ -56,7 +56,11 @@ require("lazy").setup({
         branch = "main",
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
-    { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
+    {
+        "nvim-tree/nvim-tree.lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        cmd = { "NvimTreeFocus", "NvimTreeToggle" },
+    },
 
     -- Git
     {
@@ -85,7 +89,7 @@ require("lazy").setup({
     "mfussenegger/nvim-dap",
     { "jay-babu/mason-nvim-dap.nvim", dependencies = { "mfussenegger/nvim-dap" } },
     { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
-    "leoluz/nvim-dap-go",
+    { "leoluz/nvim-dap-go", ft = "go" },
 
     -- Telescope
     {
@@ -141,6 +145,7 @@ require("lazy").setup({
         config = function()
             require("nvim-autopairs").setup()
         end,
+        event = "InsertEnter",
     },
     {
         "nmac427/guess-indent.nvim",
@@ -155,6 +160,7 @@ require("lazy").setup({
         "goolord/alpha-nvim",
         commit = "417e756951cb0395f080f2c0eda84c8aadcbb80e",
         dependencies = { "kyazdani42/nvim-web-devicons" },
+        event = "VimEnter",
     },
 
     -- Startup time profiling
