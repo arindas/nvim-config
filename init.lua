@@ -1,6 +1,8 @@
 require("user.options")
 require("user.keymaps")
-require("user.plugins")
+
+require("config.lazy")
+
 -- require("user.filetype")
 require("user.icons")
 require("user.colorscheme")
