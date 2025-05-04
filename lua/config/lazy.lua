@@ -25,7 +25,7 @@ require("lazy").setup({
     -- "nathom/filetype.nvim", -- optional, commented
 
     -- Colorscheme
-    { "RRethy/nvim-base16", lazy = true },
+    "RRethy/nvim-base16",
 
     -- Completion and snippets
     "hrsh7th/cmp-buffer",
