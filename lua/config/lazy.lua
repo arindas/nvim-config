@@ -25,15 +25,22 @@ require("lazy").setup({
     -- "nathom/filetype.nvim", -- optional, commented
 
     -- Colorscheme
-    "RRethy/nvim-base16",
+    { "RRethy/nvim-base16", lazy = true },
 
     -- Completion and snippets
-    "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
+    {
+        "hrsh7th/nvim-cmp", -- load cmp on InsertEnter
+        event = "InsertEnter",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+        },
+    },
     "saadparwaiz1/cmp_luasnip",
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
@@ -127,6 +134,7 @@ require("lazy").setup({
         config = function()
             require("colorizer").setup()
         end,
+        lazy = true,
     },
     {
         "windwp/nvim-autopairs",
@@ -150,5 +158,11 @@ require("lazy").setup({
     },
 
     -- Startup time profiling
-    "dstein64/vim-startuptime",
+    {
+        "dstein64/vim-startuptime",
+        cmd = "StartupTime",
+        init = function()
+            vim.g.startuptime_tries = 10
+        end,
+    },
 })
