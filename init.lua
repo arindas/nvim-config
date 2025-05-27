@@ -1,6 +1,8 @@
 require("user.options")
 require("user.keymaps")
-require("user.plugins")
+
+require("config.lazy")
+
 -- require("user.filetype")
 require("user.icons")
 require("user.colorscheme")
@@ -18,6 +20,6 @@ require("user.treesitter")
 -- require "user.indentline"
 require("user.markdown")
 require("user.toggleterm")
-require("user.impatient")
+-- require("user.impatient")
 require("user.alpha")
 require("user.dap")

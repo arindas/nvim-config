@@ -47,3 +47,5 @@ vim.cmd([[set fcs+=eob:\ ]])
 -- vim.cmd [[set fcs+=vert:\ ]]
 
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+vim.g._ts_force_sync_parsing = true
