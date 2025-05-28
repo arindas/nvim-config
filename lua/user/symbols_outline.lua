@@ -84,7 +84,7 @@ require("outline").setup({
             -- The above two options are respected.
             -- This can be triggered manually through `follow_cursor` lua API,
             -- :OutlineFollow command, or <C-g>.
-            follow = { "CursorMoved" },
+            follow = {},
             -- Re-request symbols from the provider.
             -- This can be triggered manually through `refresh_outline` lua API, or
             -- :OutlineRefresh command.
