@@ -77,7 +77,7 @@ require("outline").setup({
         -- location in code when focus is in code. If disabled you can use
         -- `:OutlineFollow[!]` from any window or `<C-g>` from outline window to
         -- trigger this manually.
-        auto_set_cursor = true,
+        auto_set_cursor = false,
         -- Autocmd events to automatically trigger these operations.
         auto_update_events = {
             -- Includes both setting of cursor and highlighting of hovered item.
