@@ -77,6 +77,7 @@ require("lazy").setup({
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "williamboman/mason.nvim" },
+        version = "1.32.0",
     },
 
     -- Outline, Zig, Rust
