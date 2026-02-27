@@ -26,12 +26,8 @@ end
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls",
-        "jsonls",
-        "pyright",
         "clangd",
-        "gopls",
         "zls",
-        "ts_ls",
         "rust_analyzer",
     },
 })
