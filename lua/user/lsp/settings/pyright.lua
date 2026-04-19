@@ -1,12 +1,1 @@
-return {
-	settings = {
-
-		python = {
-			analysis = {
-				autoSearchPaths = true,
-				diagnosticMode = "workspace",
-				useLibraryCodeForTypes = true,
-			},
-		},
-	},
-}
+return require("config.lsp.settings.pyright")
