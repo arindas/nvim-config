@@ -12,7 +12,7 @@ Goal: restructure directory layout with `common/` (not `util/`) while keeping co
 - [x] 6. Migrate LSP tree from `lua/user/lsp` to `lua/config/lsp` and update references.
 - [x] 7. Migrate remaining feature configs (`dap`, `cmp`, `telescope`, etc.) to `lua/config` and remove old `lua/user` references.
 - [x] 8. Add `lua/core/init.lua` entrypoint and simplify root `init.lua`.
-- [ ] 9. Remove compatibility shims and delete obsolete `lua/user` files once everything is stable.
+- [x] 9. Remove compatibility shims and delete obsolete `lua/user` files once everything is stable.
 - [ ] 10. Final cleanup: format Lua files, update README structure notes.
 
 ## Validation after each step
