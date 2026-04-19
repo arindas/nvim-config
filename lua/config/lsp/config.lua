@@ -23,6 +23,14 @@ local default_opts = {
 
 local function setup_server(server_name, server_opts)
     local merged_opts = vim.tbl_deep_extend("force", default_opts, server_opts or {})
+    local cmd = merged_opts.cmd and merged_opts.cmd[1]
+
+    if cmd and vim.fn.executable(cmd) == 0 then
+        vim.schedule(function()
+            vim.notify(string.format("LSP '%s' not started: executable '%s' not found", server_name, cmd), vim.log.levels.WARN)
+        end)
+        return
+    end
 
     if vim.lsp and vim.lsp.config and vim.lsp.enable then
         vim.lsp.config(server_name, merged_opts)
@@ -52,19 +60,13 @@ mason_lspconfig.setup_handlers({
 
     ["rust_analyzer"] = function() end,
 
-    ["jsonls"] = function()
-        setup_server("jsonls", require("config.lsp.settings.jsonls"))
-    end,
-
     ["lua_ls"] = function()
         setup_server("lua_ls", require("config.lsp.settings.lua_ls"))
-    end,
-
-    ["pyright"] = function()
-        setup_server("pyright", require("config.lsp.settings.pyright"))
     end,
 
     ["clangd"] = function()
         setup_server("clangd", require("config.lsp.settings.clangd"))
     end,
 })
+
+setup_server("pyrefly", require("config.lsp.settings.pyrefly"))
