@@ -17,7 +17,7 @@ vim.loader.enable()
 -- Load plugins
 require("lazy").setup({
     -- Plugin manager manages itself
-    { "folke/lazy.nvim", version = "*" },
+    { "folke/lazy.nvim",              version = "*" },
 
     -- Essentials
     "nvim-lua/plenary.nvim",
@@ -41,8 +41,8 @@ require("lazy").setup({
             "hrsh7th/cmp-buffer",
         },
     },
-    { "saadparwaiz1/cmp_luasnip", event = "InsertEnter" },
-    { "L3MON4D3/LuaSnip", event = "InsertEnter" },
+    { "saadparwaiz1/cmp_luasnip",     event = "InsertEnter" },
+    { "L3MON4D3/LuaSnip",             event = "InsertEnter" },
     { "rafamadriz/friendly-snippets", lazy = true },
 
     -- UI
@@ -89,8 +89,8 @@ require("lazy").setup({
     -- DAP
     "mfussenegger/nvim-dap",
     { "jay-babu/mason-nvim-dap.nvim", dependencies = { "mfussenegger/nvim-dap" } },
-    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
-    { "leoluz/nvim-dap-go", ft = "go" },
+    { "rcarriga/nvim-dap-ui",         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+    { "leoluz/nvim-dap-go",           ft = "go" },
 
     -- Telescope
     {
@@ -154,7 +154,7 @@ require("lazy").setup({
             require("guess-indent").setup()
         end,
     },
-    { "akinsho/toggleterm.nvim", branch = "main" },
+    { "akinsho/toggleterm.nvim",         branch = "main" },
 
     -- Startup screen
     {
