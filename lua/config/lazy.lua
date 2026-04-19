@@ -14,14 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.loader.enable()
 
-local plugin_specs = {}
-vim.list_extend(plugin_specs, require("plugins.core"))
-vim.list_extend(plugin_specs, require("plugins.completion"))
-vim.list_extend(plugin_specs, require("plugins.ui"))
-vim.list_extend(plugin_specs, require("plugins.lsp"))
-vim.list_extend(plugin_specs, require("plugins.dap"))
-vim.list_extend(plugin_specs, require("plugins.telescope"))
-vim.list_extend(plugin_specs, require("plugins.editor"))
-
--- Load plugins
-require("lazy").setup(plugin_specs)
+-- Load plugin specs from lua/plugins/*.lua
+require("lazy").setup({
+    spec = {
+        { import = "plugins" },
+    },
+})
