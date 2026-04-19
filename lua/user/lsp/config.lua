@@ -1,29 +1,42 @@
 local status_ok, mason = pcall(require, "mason")
-
 if not status_ok then
+    return
+end
+
+local status_ok_handlers, handlers = pcall(require, "user.lsp.handlers")
+if not status_ok_handlers then
+    return
+end
+
+local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_ok then
     return
 end
 
 mason.setup({})
 
-local status_ok_handlers, handlers = pcall(require, "user.lsp.handlers")
-
-if not status_ok_handlers then
-    return
-end
-
-local opts = {
+local default_opts = {
     capabilities = handlers.capabilities,
     on_init = handlers.on_init,
     on_attach = handlers.on_attach,
 }
 
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then
-    return
+local function setup_server(server_name, server_opts)
+    local merged_opts = vim.tbl_deep_extend("force", default_opts, server_opts or {})
+
+    if vim.lsp and vim.lsp.config and vim.lsp.enable then
+        vim.lsp.config(server_name, merged_opts)
+        vim.lsp.enable(server_name)
+        return
+    end
+
+    local ok, lspconfig = pcall(require, "lspconfig")
+    if ok and lspconfig[server_name] then
+        lspconfig[server_name].setup(merged_opts)
+    end
 end
 
-require("mason-lspconfig").setup({
+mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
         "clangd",
@@ -32,48 +45,26 @@ require("mason-lspconfig").setup({
     },
 })
 
-require("mason-lspconfig").setup_handlers({
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
-    function(server_name) -- default handler (optional)
-        lspconfig[server_name].setup(opts)
+mason_lspconfig.setup_handlers({
+    function(server_name)
+        setup_server(server_name)
     end,
-    -- Next, you can provide a dedicated handler for specific servers.
-    -- For example, a handler override for the `rust_analyzer`:
+
     ["rust_analyzer"] = function() end,
 
     ["jsonls"] = function()
-        local jsonls_opts = require("user.lsp.settings.jsonls")
-        jsonls_opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-        lspconfig.jsonls.setup(jsonls_opts)
+        setup_server("jsonls", require("user.lsp.settings.jsonls"))
     end,
 
     ["lua_ls"] = function()
-        local lua_ls_opts = require("user.lsp.settings.lua_ls")
-        lua_ls_opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)
-        lspconfig.lua_ls.setup(lua_ls_opts)
+        setup_server("lua_ls", require("user.lsp.settings.lua_ls"))
     end,
 
     ["pyright"] = function()
-        local pyright_opts = require("user.lsp.settings.pyright")
-        pyright_opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-        lspconfig.pyright.setup(pyright_opts)
+        setup_server("pyright", require("user.lsp.settings.pyright"))
     end,
 
     ["clangd"] = function()
-        local clangd_opts = require("user.lsp.settings.clangd")
-        clangd_opts = vim.tbl_deep_extend("force", clangd_opts, opts)
-        lspconfig.clangd.setup(clangd_opts)
+        setup_server("clangd", require("user.lsp.settings.clangd"))
     end,
 })
-
--- configure LspInfo window border
-local win = require("lspconfig.ui.windows")
-local _default_opts = win.default_opts
-
-win.default_opts = function(options)
-    local lspinfoconfig = _default_opts(options)
-    lspinfoconfig.border = "rounded"
-    return lspinfoconfig
-end

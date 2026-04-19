@@ -123,14 +123,18 @@ require("lazy").setup({
     -- Treesitter and Testing
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     {
-        "klen/nvim-test",
+        "vim-test/vim-test",
         config = function()
-            require("nvim-test").setup({
-                term = "toggleterm",
-                termOpts = { direction = "horizontal" },
-            })
+            vim.g["test#strategy"] = "neovim"
+            vim.g["test#neovim#term_position"] = "botright 12"
         end,
-        event = "VeryLazy",
+        cmd = {
+            "TestNearest",
+            "TestFile",
+            "TestSuite",
+            "TestLast",
+            "TestVisit",
+        },
     },
 
     -- Other utilities
@@ -160,7 +164,7 @@ require("lazy").setup({
     {
         "goolord/alpha-nvim",
         commit = "417e756951cb0395f080f2c0eda84c8aadcbb80e",
-        dependencies = { "kyazdani42/nvim-web-devicons" },
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         event = "VimEnter",
     },
 

@@ -173,7 +173,13 @@ local opts = {
     commands = {
       Format = {
         function()
-          vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line "$", 0 })
+          local last_line = math.max(vim.api.nvim_buf_line_count(0) - 1, 0)
+          vim.lsp.buf.format({
+            range = {
+              ["start"] = { 0, 0 },
+              ["end"] = { last_line, 0 },
+            },
+          })
         end,
       },
     },
