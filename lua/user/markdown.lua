@@ -1,2 +1,1 @@
-vim.g.markdown_enable_mappings = 0
-
+return require("config.markdown")
