@@ -8,8 +8,67 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
     },
 
-    -- Treesitter and testing
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    -- Treesitter
+    -- https://stackoverflow.com/a/79889920
+    {
+        "nvim-treesitter/nvim-treesitter",
+        lazy = false,
+        build = ":TSUpdate",
+        config = function()
+            local ts = require("nvim-treesitter")
+            local languages = {
+                "c",
+                "cpp",
+                "zig",
+                "rust",
+                "go",
+                "bash",
+                "lua",
+                "css",
+                "ocaml",
+                "haskell",
+                "dockerfile",
+                "html",
+                "javascript",
+                "json",
+                "markdown",
+                "php",
+                "python",
+                "sql",
+                "typescript",
+                "vim",
+                "vue",
+                "yaml",
+            }
+
+            ts.setup({})
+
+            -- NOTE: If languages fail to install or compilation hangs,
+            -- ensure 'tree-sitter-cli' is installed (e.g., :MasonInstall tree-sitter-cli).
+            -- If the issue persists, run :checkhealth nvim-treesitter to diagnose.
+
+            -- Use :TSInstall for manuall install languages
+            ts.install(languages)
+
+            -- Treesitter features for installed languages must be enabled manually
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = languages,
+                callback = function()
+                    -- Enable native Neovim treesitter highlighting
+                    vim.treesitter.start()
+
+                    -- Configure code folding
+                    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+                    vim.wo.foldmethod = "expr"
+                    vim.wo.foldlevel = 99
+
+                    -- Enable treesitter-based indentation
+                    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
+            })
+        end,
+    },
+
     {
         "vim-test/vim-test",
         config = function()
