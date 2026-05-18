@@ -27,7 +27,8 @@ local function setup_server(server_name, server_opts)
 
     if cmd and vim.fn.executable(cmd) == 0 then
         vim.schedule(function()
-            vim.notify(string.format("LSP '%s' not started: executable '%s' not found", server_name, cmd), vim.log.levels.WARN)
+            vim.notify(string.format("LSP '%s' not started: executable '%s' not found", server_name, cmd),
+                vim.log.levels.WARN)
         end)
         return
     end
@@ -47,7 +48,6 @@ end
 mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
-        "clangd",
         "zls",
         "rust_analyzer",
     },
@@ -64,9 +64,8 @@ mason_lspconfig.setup_handlers({
         setup_server("lua_ls", require("config.lsp.settings.lua_ls"))
     end,
 
-    ["clangd"] = function()
-        setup_server("clangd", require("config.lsp.settings.clangd"))
-    end,
 })
 
-setup_server("pyrefly", require("config.lsp.settings.pyrefly"))
+setup_server("clangd", require("config.lsp.settings.clangd"))
+
+-- setup_server("pyrefly", require("config.lsp.settings.pyrefly"))
