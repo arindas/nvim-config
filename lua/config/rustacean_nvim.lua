@@ -1,4 +1,4 @@
-local status_ok, lsp_handlers = pcall(require, "user.lsp.handlers")
+local status_ok, lsp_handlers = pcall(require, "config.lsp.handlers")
 
 if not status_ok then
     return
